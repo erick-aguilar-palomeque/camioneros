@@ -53,6 +53,13 @@ CREATE TABLE camion(
     usuario_modificacion text NOT NULL,
     clave_estado varchar(4) references estado(clave_estado) default 'AC'
 );
+insert into camion(placas, volumen, peso_maximo, usuario_alta, fecha_alta, usuario_modificacion, fecha_modificacion, clave_estado)
+values
+('PG-032', 1000, 1500, 'DESARROLLO', now(), 'DESAROLLO', now(), 'AC'),
+('PG-033', 2000, 2500, 'DESARROLLO', now(), 'DESAROLLO', now(), 'AC'),
+('PG-034', 3000, 3500, 'DESARROLLO', now(), 'DESAROLLO', now(), 'AC');
+
+
 
 CREATE TABLE viaje(
     id_viaje serial PRIMARY KEY,
