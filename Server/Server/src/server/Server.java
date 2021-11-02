@@ -4,7 +4,8 @@
  */
 package server;
 
-import dao.CamionRepository;
+import com.google.gson.Gson;
+import controller.CamionController;
 import java.io.*;
 import java.net.*;
 import org.json.JSONObject;
@@ -35,36 +36,46 @@ public class Server {
 
 class Hilo extends Thread {
     Socket cliente;
-    CamionRepository camionRepository = new CamionRepository();
 
     public Hilo(Socket cliente_) {
         cliente = cliente_;
     }
 
     public void run() {
+        Gson gson = new Gson();
         try {
             DataInputStream readmessage = new DataInputStream(cliente.getInputStream());
             DataOutputStream writemessage = new DataOutputStream(cliente.getOutputStream());
-            
             int opcMenu;
             int opcSubmenu;
             System.out.println("\t NUEVA CONEXION => ip: " + cliente.getInetAddress());
             opcMenu = readmessage.readInt();
             opcSubmenu = readmessage.readInt();
-            JSONObject data = new JSONObject(readmessage.readUTF());
+            String data = readmessage.readUTF();
             
-            System.out.println("opcMenu: " + opcMenu);
-            System.out.println("opcSubmenu: " + opcSubmenu);
-            System.out.println("data: " + data);
-            System.out.println("Termino la espera");
+            String mensaje = "Todo bien";
+            boolean done = true;
+            JSONObject json = new JSONObject();
             
-            JSONObject respuesta = new JSONObject().put("message", "Hola!, estoy a tus ordenes");
-            if(opcMenu == 6){
-                respuesta = new JSONObject().put("camiones", camionRepository.findAll());
+            switch(opcMenu){
+                case 1://ALMACENES
+                    
+                    break;
+                case 2:
+                    
+                    break;
+                case 3://CAMIONES
+                    json = new CamionController().menuCamion(opcSubmenu, data);
+                    break;
+                case 4:
+                    
+                    break;
+                case 5:
+                    
+                    break;
             }
             
-            writemessage.writeUTF(respuesta.toString());
-            
+            writemessage.writeUTF(json.toString());
             readmessage.close();
             writemessage.close();
             Thread.sleep(100000);
@@ -72,4 +83,5 @@ class Hilo extends Thread {
         } catch (Exception e) {
         }
     }
+    
 }

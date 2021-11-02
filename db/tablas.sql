@@ -10,6 +10,7 @@ insert into estado values('AC', 'ACTIVO');
 insert into estado values('BA', 'BAJA');
 insert into estado values('EC', 'EN CAMINO');
 insert into estado values('EN', 'ENTREGADO');
+insert into estado values('BA', 'BAJA');
 
 CREATE TABLE tienda(
     id_tienda serial PRIMARY KEY,
