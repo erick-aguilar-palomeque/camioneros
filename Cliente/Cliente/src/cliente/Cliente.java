@@ -7,6 +7,7 @@ package cliente;
 import com.google.gson.Gson;
 import config.Peticion;
 import controllers.CamionController;
+import controllers.ReportesController;
 import entities.Camion;
 import java.util.Scanner;
 import org.json.JSONObject;
@@ -105,18 +106,37 @@ public class Cliente {
 //                            }
 //                        }while(opcSubmenu != 4);                        
 //                        break;
-//                    case 5:
-//                        do{
-//                            imprimirMenuReportes();
-//                            opcSubmenu = input.nextInt();
-//                            switch(opcSubmenu){
-//                                case 11: System.out.println("..."); break;
-//                                default: 
-//                                    System.out.println("Haz escogido el reporte: " + opcSubmenu); 
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                            }
-//                        }while(opcSubmenu != 11);                        
-//                        break;
+                    case 5:
+                        ReportesController reporteController = new ReportesController();
+                        do{
+                            imprimirMenuReportes();
+                            opcSubmenu = input.nextInt();
+                            switch(opcSubmenu){
+                                case 1:
+                                    break;
+                                case 2://Reporte 2.Mostrar los envios que viajaron en el camion con numero de placa x 
+                                    System.out.println("Haz escogido el reporte 2");
+                                     reporteController.r4_enviosDadoPlacas(opcMenu, opcSubmenu);
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                case 8:
+                                    break;
+                                case 9:
+                                    break;
+                                case 10:
+                                    break;
+                            }
+                        }while(opcSubmenu != 11);                        
+                        break;
                     case 6:System.out.println("===SALIR===");break;
                 }
 
