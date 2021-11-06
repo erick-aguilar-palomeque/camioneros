@@ -70,6 +70,7 @@ public class Cliente {
                         do{
                             imprimirMenuCRUD("CAMIONES");
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch(opcSubmenu){
                                 case 1: System.out.println("Haz escogido alta de camiones"); 
                                     camionController.insertar(opcMenu, opcSubmenu, USUARIO);
@@ -86,6 +87,8 @@ public class Cliente {
                                 break;
                                 case 5: System.out.println("..."); break;
                             }
+                            long endTime = System.currentTimeMillis();
+                            System.out.println("Tiempo de ejecucion:"+(endTime-startTime)+" milisegundos");
                         }while(opcSubmenu != 5);                        
                         break;
 //                    case 4:
