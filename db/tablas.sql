@@ -85,9 +85,9 @@ insert into viaje values(default,1,default,'DESARROLLO',null,null,default,'DESAR
 insert into viaje values(default,2,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
 insert into viaje values(default,3,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
 insert into viaje values(default,4,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into viaje values(default,1,'11-10-2021','DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into viaje values(default,4,'12-10-2021','DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into viaje values(default,1,'25-09-2021','DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into viaje values(default,1,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into viaje values(default,4,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into viaje values(default,1,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
 
 CREATE TABLE envio(
     id_envio serial PRIMARY KEY,
