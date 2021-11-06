@@ -105,7 +105,7 @@ CREATE TABLE envio(
     usuario_modificacion text NOT NULL,
     clave_estado varchar(4) references estado(clave_estado) default 'AC'
 );
-				al,t,v  c  kg
+				
 insert into envio values(default,1,1,1,580,150,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
 insert into envio values(default,1,1,1,200,380,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
 insert into envio values(default,1,2,1,6000,1800,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
