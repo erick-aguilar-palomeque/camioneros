@@ -9,6 +9,7 @@ import controller.AlmacenesController;
 import controller.CamionController;
 import controller.ViajeController;
 import controller.TiendaController;
+import controller.ReportesController;
 import java.io.*;
 import java.net.*;
 import org.json.JSONObject;
@@ -73,8 +74,8 @@ class Hilo extends Thread {
                 case 4:
                     json = new ViajeController().menuViaje(opcSubmenu, data);
                     break;
-                case 5:
-                    
+                case 5://Reportes
+                    json= new ReportesController().menuReportes(opcSubmenu, data);
                     break;
             }
             
