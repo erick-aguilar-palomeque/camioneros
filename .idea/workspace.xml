@@ -30,6 +30,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636428405158</updated>
       <workItem from="1636428406730" duration="373000" />
+      <workItem from="1636428790909" duration="342000" />
     </task>
     <servers />
   </component>
@@ -41,10 +42,23 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Cesar" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
