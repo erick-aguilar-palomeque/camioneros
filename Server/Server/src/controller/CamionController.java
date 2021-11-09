@@ -24,12 +24,12 @@ public class CamionController {
                 System.out.println("ALTA DE CAMIONES");
                 System.out.println(data);
                 Camion camionInsertado = camionRepository.insert(getCamion(data));
-                String camionInsetadoString = gson.toJson(camionInsertado);
+                String camionInsertadoString = gson.toJson(camionInsertado);
                 if (camionInsertado == null) {
                     done = false;
                     mensaje = "Ha ocurrido un error al insertar el camion";
                 } else {
-                    json.put("data", camionInsetadoString);
+                    json.put("data", camionInsertadoString);
                 }
                 break;
             case 2://BAJA

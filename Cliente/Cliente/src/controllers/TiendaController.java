@@ -52,9 +52,9 @@ public class TiendaController {
             int idTienda = Integer.parseInt(input.nextLine());
             Tienda tiendaAEliminar = getTiendaById(idTienda);
             if (tiendaAEliminar == null) {
-                System.out.println("NO SE HA ENCONTRADO EL CAMION");
+                System.out.println("NO SE HA ENCONTRADO LA TIENDA");
             } else {
-                System.out.println("\tCAMION ENCONTRADO");
+                System.out.println("\tTIENDA ENCONTRADA");
                 System.out.println("\t-----------------------------------");
                 System.out.println("\tID: " + tiendaAEliminar.getIdTienda());
                 System.out.println("\tNOMBRE TIENDA: " + tiendaAEliminar.getNombre());
@@ -62,7 +62,7 @@ public class TiendaController {
                 System.out.println("\tUSUARIO CREACION: " + tiendaAEliminar.getUsuarioAlta());
                 System.out.println("\tFECHA CREACION: " + tiendaAEliminar.getFechaAlta());
                 System.out.println("\t-----------------------------------");
-                System.out.print("\t¿Esta seguro que desea eliminar el camion? (SI/NO)");
+                System.out.print("\t¿Esta seguro que desea eliminar la tienda? (SI/NO)");
                 String confirmacion = input.nextLine();
                 if (confirmacion.equals("SI")) {
                     tiendaAEliminar.setUsuarioBaja(usuario);
@@ -84,9 +84,9 @@ public class TiendaController {
             int idTienda = Integer.parseInt(input.nextLine());
             Tienda tiendaAModificar = getTiendaById(idTienda);
             if (tiendaAModificar == null) {
-                System.out.println("NO SE HA ENCONTRADO EL CAMION");
+                System.out.println("NO SE HA ENCONTRADO LA TIENDA");
             } else {
-                System.out.println("\tCAMION ENCONTRADO");
+                System.out.println("\tTIENDA ENCONTRADA");
                 System.out.println("\t-----------------------------------");
                 System.out.println("\tID: " + tiendaAModificar.getIdTienda());
                 System.out.println("\tNOMBRE TIENDA: " + tiendaAModificar.getNombre());
