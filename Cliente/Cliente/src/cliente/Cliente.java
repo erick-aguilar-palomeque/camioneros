@@ -116,26 +116,44 @@ public class Cliente {
                             opcSubmenu = input.nextInt();
                             switch(opcSubmenu){
                                 case 1:
+                                     System.out.println("Haz escogido el reporte 1");
+                                     reporteController.r1_tiendasPorCamion(opcMenu, opcSubmenu);
                                     break;
                                 case 2://Reporte 2.Mostrar los envios que viajaron en el camion con numero de placa x 
                                     System.out.println("Haz escogido el reporte 2");
-                                     reporteController.r4_enviosDadoPlacas(opcMenu, opcSubmenu);
+                                     reporteController.r2_enviosDadoPlacas(opcMenu, opcSubmenu);
                                     break;
                                 case 3:
+                                     System.out.println("Haz escogido el reporte 3");
+                                     reporteController.r3_tiendasCantidadPeso(opcMenu, opcSubmenu);
                                     break;
                                 case 4:
+                                     System.out.println("Haz escogido el reporte 4");
+                                     reporteController.r4_enviosPorTienda(opcMenu, opcSubmenu);
                                     break;
                                 case 5:
+                                     System.out.println("Haz escogido el reporte 5");
+                                     reporteController.r5_camionConMasViajes(opcMenu, opcSubmenu);
                                     break;
                                 case 6:
+                                     System.out.println("Haz escogido el reporte 6");
+                                     reporteController.r6_tiendasMasPiezas(opcMenu, opcSubmenu);
                                     break;
                                 case 7:
+                                     System.out.println("Haz escogido el reporte 7");
+                                     reporteController.r7_camionesPesoSuperado(opcMenu, opcSubmenu);
                                     break;
                                 case 8:
+                                     System.out.println("Haz escogido el reporte 8");
+                                     reporteController.r8_mesConMenosViajes(opcMenu, opcSubmenu);
                                     break;
                                 case 9:
+                                     System.out.println("Haz escogido el reporte 9");
+                                     reporteController.r9_mesConMasViajes(opcMenu, opcSubmenu);
                                     break;
                                 case 10:
+                                     System.out.println("Haz escogido el reporte 10");
+                                     reporteController.r10_viajesCamionPorFecha(opcMenu, opcSubmenu);
                                     break;
                             }
                         }while(opcSubmenu != 11);                        
