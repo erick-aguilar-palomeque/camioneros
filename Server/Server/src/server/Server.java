@@ -6,6 +6,7 @@ package server;
 
 import com.google.gson.Gson;
 import controller.CamionController;
+import controller.ViajeController;
 import java.io.*;
 import java.net.*;
 import org.json.JSONObject;
@@ -68,7 +69,7 @@ class Hilo extends Thread {
                     json = new CamionController().menuCamion(opcSubmenu, data);
                     break;
                 case 4:
-                    
+                    json = new ViajeController().menuViaje(opcSubmenu, data);
                     break;
                 case 5:
                     

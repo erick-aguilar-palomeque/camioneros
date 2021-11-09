@@ -7,6 +7,7 @@ package cliente;
 import com.google.gson.Gson;
 import config.Peticion;
 import controllers.CamionController;
+import controllers.ViajeController;
 import entities.Camion;
 import java.util.Scanner;
 import org.json.JSONObject;
@@ -87,24 +88,25 @@ public class Cliente {
                             }
                         }while(opcSubmenu != 5);                        
                         break;
-//                    case 4:
-//                        do{
-//                            imprimirMenuCRUD("VIAJES");
-//                            opcSubmenu = input.nextInt();
-//                            switch(opcSubmenu){
-//                                case 1: System.out.println("Haz escogido alta de viajes"); 
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
+                    case 4:
+																						ViajeController viajeController = new ViajeController();
+                        do{
+                            imprimirMenuViaje();
+                            opcSubmenu = input.nextInt();
+                            switch(opcSubmenu){
+                                case 1: 
+                                    viajeController.insertar(opcMenu, opcSubmenu, USUARIO);
+                                break;
 //                                case 2: System.out.println("Haz escogido baja de viajes"); 
 //                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
 //                                break;
 //                                case 3: System.out.println("Haz escogido edicion de viajes"); 
 //                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
 //                                break;
-//                                case 4: System.out.println("..."); break;
-//                            }
-//                        }while(opcSubmenu != 4);                        
-//                        break;
+                                case 4: System.out.println("..."); break;
+                            }
+                        }while(opcSubmenu != 4);                        
+                        break;
 //                    case 5:
 //                        do{
 //                            imprimirMenuReportes();
@@ -145,6 +147,14 @@ public class Cliente {
         System.out.println("\t[5]. VOLVER");
         System.out.print("\tElige una opción: ");
     }
+				void imprimirMenuViaje() {
+						System.out.println("\t===========  MENU VIAJE ===========");
+        System.out.println("\t[1]. ALTA");
+        System.out.println("\t[2]. CONSULTA");
+        System.out.println("\t[3]. ENTREGAR");
+        System.out.println("\t[4]. VOLVER");
+        System.out.print("\tElige una opción: ");
+				}
     void imprimirMenuReportes(){
         System.out.println("\t=========== Reportes ===========");
         System.out.println("\t[1]. REPORTE 1");

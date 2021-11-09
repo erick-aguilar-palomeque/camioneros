@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="libs1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Cliente/Cliente/libs/gson-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Cliente/Cliente/libs/json-20180813.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Cliente/Cliente/libs/lombok-1.18.16.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
