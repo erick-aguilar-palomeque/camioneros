@@ -6,6 +6,7 @@ package cliente;
 
 import com.google.gson.Gson;
 import config.Peticion;
+import controllers.AlmacenController;
 import controllers.CamionController;
 import controllers.ViajeController;
 import controllers.TiendaController;
@@ -31,25 +32,30 @@ public class Cliente {
             do {
                 imprimirMenu();
                 opcMenu = input.nextInt();
-                switch (opcMenu) {
-//                    case 1:
-//                        do{
-//                            imprimirMenuCRUD("ALMACENES");
-//                            opcSubmenu = input.nextInt();
-//                            switch(opcSubmenu){
-//                                case 1: System.out.println("Haz escogido alta de almacenes"); 
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
-//                                case 2: System.out.println("Haz escogido baja de almacenes"); 
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
-//                                case 3: System.out.println("Haz escogido edicion de almacenes"); 
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
-//                                case 4: System.out.println("..."); break;
-//                            }
-//                        }while(opcSubmenu != 4);                        
-//                        break;
+                switch(opcMenu){case 1:
+                    do{
+                        imprimirMenuCRUD("ALMACENES");
+                        opcSubmenu = input.nextInt();
+                        switch(opcSubmenu){
+                            case 1:
+                                System.out.println("\n\nHAZ ESCOGIDO ALTA DE ALMACENES");
+                                almacenController.insertar(opcMenu, opcSubmenu, USUARIO);
+                                break;
+                            case 2: System.out.println("Haz escogido baja de almacenes");
+                                almacenController.eliminar(opcMenu, opcSubmenu, USUARIO);
+                                break;
+                            case 3: System.out.println("Haz escogido edicion de almacenes");
+                                almacenController.modificar(opcMenu, opcSubmenu, USUARIO);
+                                break;
+
+                            case 4:
+                                System.out.println("\n\nHAZ ESCOGIDO CONSULTA DE ALMACENES");
+                                almacenController.consultar(opcMenu, opcSubmenu);
+                                break;
+                            case 5: System.out.println("..."); break;
+                        }
+                    }while(opcSubmenu != 5);
+                    break;
                     case 2:
                         TiendaController tiendaController = new TiendaController();
                         do {
@@ -83,28 +89,23 @@ public class Cliente {
                         do {
                             imprimirMenuCRUD("CAMIONES");
                             opcSubmenu = input.nextInt();
-                            switch (opcSubmenu) {
-                                case 1:
-                                    System.out.println("Haz escogido alta de camiones");
+                            switch(opcSubmenu){
+                                case 1: System.out.println("Haz escogido alta de camiones"); 
                                     camionController.insertar(opcMenu, opcSubmenu, USUARIO);
-                                    break;
-                                case 2:
-                                    System.out.println("Haz escogido baja de camiones");
+                                break;
+                                case 2: System.out.println("Haz escogido baja de camiones"); 
                                     camionController.eliminar(opcMenu, opcSubmenu, USUARIO);
-                                    break;
-                                case 3:
-                                    System.out.println("Haz escogido edicion de camiones");
+                                break;
+                                case 3: System.out.println("Haz escogido edicion de camiones"); 
                                     camionController.modificar(opcMenu, opcSubmenu, USUARIO);
-                                    break;
-                                case 4:
-                                    System.out.println("\n\nHAZ ESCOGIDO CONSULTA DE CAMIONES");
+                                break;
+                                case 4: 
+                                    System.out.println("\n\nHAZ ESCOGIDO CONSULTA DE CAMIONES"); 
                                     camionController.consultar(opcMenu, opcSubmenu);
-                                    break;
-                                case 5:
-                                    System.out.println("...");
-                                    break;
+                                break;
+                                case 5: System.out.println("..."); break;
                             }
-                        } while (opcSubmenu != 5);
+                        }while(opcSubmenu != 5);                        
                         break;
                     case 4:
 																						ViajeController viajeController = new ViajeController();
