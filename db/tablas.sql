@@ -24,9 +24,9 @@ CREATE TABLE tienda(
     usuario_modificacion text NOT NULL,
     clave_estado varchar(4) references estado(clave_estado) default 'AC'
 );
-insert into tienda values(default,'perez hermanos','monterrey',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
-insert into tienda values(default,'perez hermanos','chiapas',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
-insert into tienda values(default,'perez hermanos mini','tlaxcala',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
+insert into tienda values(default,'monterrey','monterrey',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
+insert into tienda values(default,'chiapas','chiapas',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
+insert into tienda values(default,'tlaxcala','tlaxcala',now(),'DESARROLLO',null,null,default,'DESARROLLO','AC');
 
 
 CREATE TABLE almacen(
@@ -105,27 +105,37 @@ CREATE TABLE envio(
     clave_estado varchar(4) references estado(clave_estado) default 'AC'
 );
 				
-insert into envio values(default,1,1,1,580,150,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,1,1,200,380,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,2,1,6000,1800,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into envio values(default,1,1,1,580,150,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,1,1,200,380,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,1,6000,1800,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
-insert into envio values(default,2,1,2,1200,200,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,2,2,550,180,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,2,2,1600,90,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,2,3,2,5001,251,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into envio values(default,2,1,2,1200,200,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,2,550,180,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,2,1600,90,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,2,3,2,5001,251,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
-insert into envio values(default,1,1,3,100,50,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,1,3,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,1,3,50,10,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into envio values(default,1,1,3,100,50,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,1,3,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,1,3,50,10,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
-insert into envio values(default,1,3,4,120,80,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,3,4,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,3,4,230,180,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into envio values(default,1,3,4,120,80,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,3,4,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,3,4,230,180,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
-insert into envio values(default,1,1,5,120,80,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,3,6,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
-insert into envio values(default,1,1,7,230,180,default,'DESARROLLO',null,null,default,'DESARROLLO',default);
+insert into envio values(default,1,1,5,120,80,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,3,6,200,150,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,1,7,230,180,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
+insert into envio values(default,1,2,2,1600,280,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,2,5600,600,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+
+
+insert into envio values(default,1,2,6,2000,2050,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,6,2002,3050,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,6,2003,4050,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,6,2004,5050,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,6,2005,6050,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
+insert into envio values(default,1,2,2,1000,2600,default,'DESARROLLO',null,null,default,'DESARROLLO','EN');
 
 CREATE TABLE entrega(
     id_entrega serial PRIMARY KEY,

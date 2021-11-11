@@ -52,10 +52,24 @@ public class ReportesController {
         if (json.getBoolean("done")) {
             //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
             JSONArray tiendas = new JSONArray(json.getJSONArray("data").toString());
-            System.out.println("\t\t" + tiendas.length() + " TIENDAS ENCONTRADAS:");
+            //System.out.println("\t\t" + tiendas.length() + " TIENDAS ENCONTRADAS:");
+            int idAux=0;
             for (Object item : tiendas) {
+                
                 JSONObject tienda = (JSONObject) item;
-
+                if(tienda.getInt("id_camion")!=idAux){
+                    System.out.println("\t---------------------------------------");
+                    System.out.println("\tCAMION:");
+                    System.out.println("\t  ID:"+tienda.getInt("id_camion"));
+                    System.out.println("\t  Placas:"+tienda.getString("placas"));
+                    System.out.println("\t  TIENDAS:");
+                    idAux=tienda.getInt("id_camion");
+                }
+                System.out.println("\t\t ---------------------------------------");
+                 System.out.println("\t\t Id tienda:"+tienda.getInt("id_tienda"));
+                 System.out.println("\t\t Nombre de tienda:"+tienda.getString("nombre"));
+                 System.out.println("\t\t Direccion:"+tienda.getString("direccion"));
+                
             }
             System.out.println("\t---------------------------------------");
         } else {
@@ -65,7 +79,13 @@ public class ReportesController {
     }
 
     public void r3_tiendasCantidadPeso(int opcMenu, int opcSubmenu) {
+        Scanner input = new Scanner(System.in);
         String data = "";
+        System.out.print("\t\tIngrese el peso:");
+        String peso = input.nextLine();
+        System.out.print("\t\tIngrese el volumen:");
+        String volumen= input.nextLine();
+        data=peso +";"+volumen;
         String respuesta = peticion.pedir(opcMenu, opcSubmenu, data);
         JSONObject json = new JSONObject(respuesta);
 
@@ -75,6 +95,8 @@ public class ReportesController {
             System.out.println("\t\t" + tiendas.length() + " TIENDAS ENCONTRADAS:");
             for (Object item : tiendas) {
                 JSONObject tienda = (JSONObject) item;
+                System.out.println("\t-------------------------------------");
+                System.out.println("\t\tNombre de tienda:"+tienda.getString("nombre"));
 
             }
             System.out.println("\t---------------------------------------");
@@ -85,7 +107,10 @@ public class ReportesController {
     }
 
     public void r4_enviosPorTienda(int opcMenu, int opcSubmenu) {
+         Scanner input = new Scanner(System.in);
         String data = "";
+        System.out.print("\t\tIngrese el ID de la tienda:");
+        data = input.nextLine();
         String respuesta = peticion.pedir(opcMenu, opcSubmenu, data);
         JSONObject json = new JSONObject(respuesta);
 
@@ -95,6 +120,14 @@ public class ReportesController {
             System.out.println("\t\t" + envios.length() + " ENVIOS ENCONTRADOS:");
             for (Object item : envios) {
                 JSONObject envio = (JSONObject) item;
+                System.out.println("\t-------------------------------------");
+                System.out.println("\t\tId del envio:"+envio.getInt("id_envio"));
+                System.out.println("\t\tVolumen del envio:"+envio.getFloat("volumen"));
+                System.out.println("\t\tPeso maximo:"+envio.getFloat("peso_maximo"));
+                System.out.println("\t\t\tVIAJE: Id:"+envio.getInt("id_viaje"));
+                System.out.println("\t\t\tCAMION:");
+                System.out.println("\t\t\t Id camion:"+envio.getInt("id_camion"));
+                System.out.println("\t\t\t Placas:"+envio.getString("placa"));
 
             }
             System.out.println("\t---------------------------------------");
@@ -105,16 +138,29 @@ public class ReportesController {
     }
 
     public void r5_camionConMasViajes(int opcMenu, int opcSubmenu) {
+        Scanner input = new Scanner(System.in);
         String data = "";
+        System.out.print("\t\tIngrese el ID de la tienda:");
+        data = input.nextLine();
         String respuesta = peticion.pedir(opcMenu, opcSubmenu, data);
         JSONObject json = new JSONObject(respuesta);
 
         if (json.getBoolean("done")) {
-            //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
-            //JSONArray envios = new JSONArray(json.getJSONArray("data").toString());
-            //System.out.println("\t\t"+envios.length()+ " ENVIOS ENCONTRADOS:");
-            JSONObject camion = new JSONObject(json.getJSONArray("data").toString());
-            //Imprimir datos del camion
+            
+            JSONArray camiones = new JSONArray(json.getJSONArray("data").toString());
+            System.out.println("\t\t" + camiones.length() + " CAMIONES ENCONTRADOS:");
+            for (Object item : camiones) {
+                System.out.println("\t-------------------------------------");
+                JSONObject camion = (JSONObject) item;
+                System.out.println("\t\tID:"+camion.getInt("id_camion"));
+                System.out.println("\t\tPlacas:"+camion.getString("placas"));
+                System.out.println("\t\tVolumen:"+camion.getFloat("volumen"));
+                System.out.println("\t\tPeso maximo:"+camion.getFloat("peso_maximo"));
+                System.out.println("\t\tHa viajado a esa tienda:"+camion.getInt("veces")+" veces");
+               
+            }
+            System.out.println("\t---------------------------------------");
+            
 
         } else {
             System.out.println(json.getString("mensaje"));
@@ -123,7 +169,10 @@ public class ReportesController {
     }
 
     public void r6_tiendasMasPiezas(int opcMenu, int opcSubmenu) {
+         Scanner input = new Scanner(System.in);
         String data = "";
+        System.out.print("\t\tIngrese la cantidad de piezas(volumen):");
+        data = input.nextLine();
         String respuesta = peticion.pedir(opcMenu, opcSubmenu, data);
         JSONObject json = new JSONObject(respuesta);
 
@@ -132,7 +181,12 @@ public class ReportesController {
             JSONArray tiendas = new JSONArray(json.getJSONArray("data").toString());
             System.out.println("\t\t" + tiendas.length() + " TIENDAS ENCONTRADAS:");
             for (Object item : tiendas) {
+                System.out.println("\t-------------------------------------");
                 JSONObject tienda = (JSONObject) item;
+                System.out.println("\t\tID:"+tienda.getInt("id_tienda"));
+                System.out.println("\t\tNombre:"+tienda.getString("nombre"));
+                System.out.println("\t\tDireccion:"+tienda.getString("direccion"));
+                System.out.println("\t\tCantidad de envios:"+tienda.getInt("num_envios"));
 
             }
             System.out.println("\t---------------------------------------");
@@ -153,6 +207,11 @@ public class ReportesController {
             System.out.println("\t\t" + camiones.length() + " CAMIONES ENCONTRADOS:");
             for (Object item : camiones) {
                 JSONObject camion = (JSONObject) item;
+                System.out.println("\t-------------------------------------");
+                System.out.println("\t\tId:"+camion.getInt("id_camion"));
+                System.out.println("\t\tPlacas:"+camion.getString("placas"));
+                System.out.println("\t\tPeso maximo:"+camion.getFloat("peso_maximo"));
+                System.out.println("\t\tVeces superado:"+camion.getFloat("veces"));
 
             }
             System.out.println("\t---------------------------------------");
@@ -168,9 +227,14 @@ public class ReportesController {
         JSONObject json = new JSONObject(respuesta);
 
         if (json.getBoolean("done")) {
-            //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
-            JSONObject datosMes = new JSONObject(json.getJSONArray("data").toString());
-            //Imprimir datos del mes.
+             //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
+            JSONArray meses = new JSONArray(json.getJSONArray("data").toString());
+            for (Object item : meses) {
+                JSONObject mes = (JSONObject) item;
+                System.out.println("\t-------------------------------------");
+                System.out.println("\t\tMes:"+mes.getString("mes"));
+                System.out.println("\t\tViajes realizados:"+mes.getInt("noviajes"));
+            }
             System.out.println("\t---------------------------------------");
         } else {
             System.out.println(json.getString("mensaje"));
@@ -185,8 +249,13 @@ public class ReportesController {
 
         if (json.getBoolean("done")) {
             //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
-            JSONObject datosMes = new JSONObject(json.getJSONArray("data").toString());
-            //Imprimir datos del mes.
+            JSONArray meses = new JSONArray(json.getJSONArray("data").toString());
+            for (Object item : meses) {
+                JSONObject mes = (JSONObject) item;
+                System.out.println("\t-------------------------------------");
+                System.out.println("\t\tMes:"+mes.getString("mes"));
+                System.out.println("\t\tViajes realizados:"+mes.getInt("noviajes"));
+            }
             System.out.println("\t---------------------------------------");
         } else {
             System.out.println(json.getString("mensaje"));
@@ -195,14 +264,39 @@ public class ReportesController {
     }
     
       public void r10_viajesCamionPorFecha(int opcMenu, int opcSubmenu) {
+        Scanner input = new Scanner(System.in);
         String data = "";
+        String fecha_inicio;
+        String fecha_fin;
+        System.out.print("\t\tIngrese la fecha inicial:");
+        fecha_inicio = input.nextLine();
+        System.out.print("\t\tIngrese la fecha fina:");
+        fecha_fin = input.nextLine();
+        data=fecha_inicio +";"+fecha_fin;
         String respuesta = peticion.pedir(opcMenu, opcSubmenu, data);
         JSONObject json = new JSONObject(respuesta);
         if (json.getBoolean("done")) {
             //Se obtiene la lista de envios devuelta en el atributo data de la respuesta del servidor
-            JSONArray viajes = new JSONArray(json.getJSONArray("data").toString());
-            for (Object item : viajes) {
-                JSONObject camion = (JSONObject) item;
+            JSONArray datos = new JSONArray(json.getJSONArray("data").toString());
+            int idAux=0;
+            int idViajeAux=0;
+            for (Object item : datos) {
+                JSONObject dato = (JSONObject) item;
+                if(dato.getInt("id_camion")!=idAux){
+                     System.out.println("\t\t---------------------------------");
+                    System.out.println("\t\tCAMION ID:"+dato.getInt("id_camion"));
+                    idAux=dato.getInt("id_camion");
+                    
+                }
+                if(idViajeAux!=dato.getInt("id_viaje")){
+                    System.out.println("\t\t\t---------------------------------");
+                    System.out.println("\t\t\tVIAJE ID:"+dato.getInt("id_viaje"));
+                    idViajeAux=dato.getInt("id_viaje");
+                }
+                 System.out.println("\t\t\t\t---------------------------------------");
+                 System.out.println("\t\t\t\tENVIO ID:"+dato.getInt("id_envio"));
+                 System.out.println("\t\t\t\tEnviado a la tienda:"+dato.getInt("id_tienda"));
+                 System.out.println("\t\t\t\tCon la cantidad:"+dato.getFloat("volumen"));              
             }
             System.out.println("\t---------------------------------------");
         } else {
