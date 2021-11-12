@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88206211-89c8-4c83-a5ac-135901dd5c6e" name="Changes" comment="" />
+    <list default="true" id="88206211-89c8-4c83-a5ac-135901dd5c6e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_08_11_2021_9_27_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_08_11_2021_9_27_PM__Changes_.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +33,7 @@
       <updated>1636428405158</updated>
       <workItem from="1636428406730" duration="373000" />
       <workItem from="1636428790909" duration="342000" />
+      <workItem from="1636681396277" duration="329000" />
     </task>
     <servers />
   </component>

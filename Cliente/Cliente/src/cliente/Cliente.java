@@ -42,6 +42,7 @@ public class Cliente {
                         do {
                             imprimirMenuCRUD("ALMACENES");
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch (opcSubmenu) {
                                 case 1:
                                     System.out.println("\n\nHAZ ESCOGIDO ALTA DE ALMACENES");
@@ -64,6 +65,8 @@ public class Cliente {
                                     System.out.println("...");
                                     break;
                             }
+                            long endTime = System.currentTimeMillis() - startTime;
+                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 2:
@@ -71,6 +74,7 @@ public class Cliente {
                         do {
                             imprimirMenuCRUD("TIENDAS");
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch (opcSubmenu) {
                                 case 1:
                                     System.out.println("Haz escogido alta de tiendas");
@@ -92,6 +96,8 @@ public class Cliente {
                                     System.out.println("...");
                                     break;
                             }
+                            long endTime = System.currentTimeMillis() - startTime;
+                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 3:
@@ -99,6 +105,7 @@ public class Cliente {
                         do {
                             imprimirMenuCRUD("CAMIONES");
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch (opcSubmenu) {
                                 case 1:
                                     System.out.println("Haz escogido alta de camiones");
@@ -120,6 +127,8 @@ public class Cliente {
                                     System.out.println("...");
                                     break;
                             }
+                            long endTime = System.currentTimeMillis() - startTime;
+                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 4:
@@ -127,6 +136,7 @@ public class Cliente {
                         do {
                             imprimirMenuViaje();
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch (opcSubmenu) {
                                 case 1:
                                     viajeController.insertar(opcMenu, opcSubmenu, USUARIO);
@@ -141,6 +151,8 @@ public class Cliente {
                                     System.out.println("...");
                                     break;
                             }
+                            long endTime = System.currentTimeMillis() - startTime;
+                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
                         } while (opcSubmenu != 4);
                         break;
                     case 5:
