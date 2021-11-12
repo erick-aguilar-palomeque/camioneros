@@ -17,13 +17,12 @@ import org.json.JSONObject;
 
 public class Cliente {
 
-		final String USUARIO = "USUARIO1";
+    final String USUARIO = "USUARIO1";
 
-		public static void main(String[] args) {
-				// TODO code application logic here
-				new Cliente().conecta_cliente();
-		}
-
+    public static void main(String[] args) {
+        // TODO code application logic here
+        new Cliente().conecta_cliente();
+    }
 
     void conecta_cliente() {
         Scanner input = new Scanner(System.in);
@@ -31,11 +30,12 @@ public class Cliente {
         String respuesta = null;
         try {
             int opcMenu, opcSubmenu;
+            imprimirTitulo();
             do {
                 imprimirMenu();
                 opcMenu = input.nextInt();
-                
-                switch(opcMenu){
+
+                switch (opcMenu) {
 
                     case 1:
                         AlmacenController almacenController = new AlmacenController();
@@ -66,7 +66,7 @@ public class Cliente {
                                     break;
                             }
                             long endTime = System.currentTimeMillis() - startTime;
-                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
+                            System.out.println("\tTiempo de ejecucion:" + endTime + " milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 2:
@@ -97,7 +97,7 @@ public class Cliente {
                                     break;
                             }
                             long endTime = System.currentTimeMillis() - startTime;
-                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
+                            System.out.println("\tTiempo de ejecucion:" + endTime + " milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 3:
@@ -128,7 +128,7 @@ public class Cliente {
                                     break;
                             }
                             long endTime = System.currentTimeMillis() - startTime;
-                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
+                            System.out.println("\tTiempo de ejecucion:" + endTime + " milisegundos");
                         } while (opcSubmenu != 5);
                         break;
                     case 4:
@@ -141,28 +141,30 @@ public class Cliente {
                                 case 1:
                                     viajeController.insertar(opcMenu, opcSubmenu, USUARIO);
                                     break;
-                                case 2: System.out.println("Haz escogido consulta de viajes");
+                                case 2:
+                                    System.out.println("Haz escogido consulta de viajes");
                                     viajeController.consulta(opcMenu, opcSubmenu);
-                                break;
-                                case 3: System.out.println("Haz escogido edicion de viajes");
+                                    break;
+                                case 3:
+                                    System.out.println("Haz escogido edicion de viajes");
                                     viajeController.entregar(opcMenu, opcSubmenu, USUARIO);
-                                break;
+                                    break;
                                 case 4:
                                     System.out.println("...");
                                     break;
                             }
                             long endTime = System.currentTimeMillis() - startTime;
-                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
+                            System.out.println("\tTiempo de ejecucion:" + endTime + " milisegundos");
                         } while (opcSubmenu != 4);
                         break;
                     case 5:
                         ReportesController reporteController = new ReportesController();
-                       
-                        do{
+
+                        do {
                             imprimirMenuReportes();
                             opcSubmenu = input.nextInt();
                             long startTime = System.currentTimeMillis();
-                            switch(opcSubmenu){
+                            switch (opcSubmenu) {
                                 case 1:
                                     System.out.println("\t\tHaz escogido el reporte 1");
                                     reporteController.r1_tiendasPorCamion(opcMenu, opcSubmenu);
@@ -205,8 +207,8 @@ public class Cliente {
                                     break;
                             }
                             long endTime = System.currentTimeMillis() - startTime;
-                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
-                        }while(opcSubmenu != 11);
+                            System.out.println("\tTiempo de ejecucion:" + endTime + " milisegundos");
+                        } while (opcSubmenu != 11);
                         break;
                     case 6:
                         System.out.println("===SALIR===");
@@ -214,61 +216,68 @@ public class Cliente {
                         break;
                 }
 
+            } while (opcMenu != 7);
 
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 
+    void imprimirMenu() {
+        System.out.println("=========== Menu principal ===========");
+        System.out.println("[1]. ALMACENES");
+        System.out.println("[2]. TIENDAS");
+        System.out.println("[3]. CAMIONES");
+        System.out.println("[4]. VIAJES");
+        System.out.println("[5]. REPORTES");
+        System.out.println("[6]. SALIR");
+        System.out.print("Elige una opción: ");
+    }
 
+    void imprimirMenuCRUD(String titulo) {
+        System.out.println("\t=========== " + titulo + " ===========");
+        System.out.println("\t[1]. ALTA");
+        System.out.println("\t[2]. BAJA");
+        System.out.println("\t[3]. MODIFICAR");
+        System.out.println("\t[4]. CONSULTA");
+        System.out.println("\t[5]. VOLVER");
+        System.out.print("\tElige una opción: ");
+    }
 
-						} while (opcMenu != 7);
+    void imprimirMenuViaje() {
+        System.out.println("\t===========  MENU VIAJE ===========");
+        System.out.println("\t[1]. ALTA");
+        System.out.println("\t[2]. CONSULTA");
+        System.out.println("\t[3]. ENTREGAR");
+        System.out.println("\t[4]. VOLVER");
+        System.out.print("\tElige una opción: ");
+    }
 
-				} catch (Exception e) {
-						System.out.println(e);
-				}
-		}
-
-		void imprimirMenu() {
-				System.out.println("=========== Menu principal ===========");
-				System.out.println("[1]. ALMACENES");
-				System.out.println("[2]. TIENDAS");
-				System.out.println("[3]. CAMIONES");
-				System.out.println("[4]. VIAJES");
-				System.out.println("[5]. REPORTES");
-				System.out.println("[6]. SALIR");
-				System.out.print("Elige una opción: ");
-		}
-
-		void imprimirMenuCRUD(String titulo) {
-				System.out.println("\t=========== " + titulo + " ===========");
-				System.out.println("\t[1]. ALTA");
-				System.out.println("\t[2]. BAJA");
-				System.out.println("\t[3]. MODIFICAR");
-				System.out.println("\t[4]. CONSULTA");
-				System.out.println("\t[5]. VOLVER");
-				System.out.print("\tElige una opción: ");
-		}
-
-		void imprimirMenuViaje() {
-				System.out.println("\t===========  MENU VIAJE ===========");
-				System.out.println("\t[1]. ALTA");
-				System.out.println("\t[2]. CONSULTA");
-				System.out.println("\t[3]. ENTREGAR");
-				System.out.println("\t[4]. VOLVER");
-				System.out.print("\tElige una opción: ");
-		}
-
-		void imprimirMenuReportes() {
+    void imprimirMenuReportes() {
 
         System.out.println("\t=========== Reportes ===========");
-						System.out.println("\t[1]. Tiendas por camion");
-						System.out.println("\t[2]. Envios por camion");
-						System.out.println("\t[3]. Tiendas con envios con cierta capacidad");
-						System.out.println("\t[4]. Viajes por tienda");
-						System.out.println("\t[5]. Camio con mas viajes a tienda");
-						System.out.println("\t[6]. Tiendas con mas envios con cierto volumen");
-						System.out.println("\t[7]. Camiones con peso superado");
-						System.out.println("\t[8]. Mes con menos viajes");
-						System.out.println("\t[9]. Mes con mas viajes");
-						System.out.println("\t[10].Reporte general");
-						System.out.println("\t[11]. VOLVER");
-						System.out.print("\tElige una opción: ");
-				}
-		}
+        System.out.println("\t[1]. Tiendas por camion");
+        System.out.println("\t[2]. Envios por camion");
+        System.out.println("\t[3]. Tiendas con envios con cierta capacidad");
+        System.out.println("\t[4]. Viajes por tienda");
+        System.out.println("\t[5]. Camio con mas viajes a tienda");
+        System.out.println("\t[6]. Tiendas con mas envios con cierto volumen");
+        System.out.println("\t[7]. Camiones con peso superado");
+        System.out.println("\t[8]. Mes con menos viajes");
+        System.out.println("\t[9]. Mes con mas viajes");
+        System.out.println("\t[10].Reporte general");
+        System.out.println("\t[11]. VOLVER");
+        System.out.print("\tElige una opción: ");
+    }
+    void imprimirTitulo(){
+        System.out.println("   _____          __  __ _____ ____  _   _ ______ _____   ____   _____ \n" +
+        "  / ____|   /\\   |  \\/  |_   _/ __ \\| \\ | |  ____|  __ \\ / __ \\ / ____|\n" +
+        " | |       /  \\  | \\  / | | || |  | |  \\| | |__  | |__) | |  | | (___  \n" +
+        " | |      / /\\ \\ | |\\/| | | || |  | | . ` |  __| |  _  /| |  | |\\___ \\ \n" +
+        " | |____ / ____ \\| |  | |_| || |__| | |\\  | |____| | \\ \\| |__| |____) |\n" +
+        "  \\_____/_/    \\_\\_|  |_|_____\\____/|_| \\_|______|_|  \\_\\\\____/|_____/ \n" +
+        "                                                                       \n" +
+        "                                                                       \n" +
+        "");
+    }
+}
