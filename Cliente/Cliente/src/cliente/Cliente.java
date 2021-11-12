@@ -131,12 +131,12 @@ public class Cliente {
                                 case 1:
                                     viajeController.insertar(opcMenu, opcSubmenu, USUARIO);
                                     break;
-//                                case 2: System.out.println("Haz escogido baja de viajes");
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
-//                                case 3: System.out.println("Haz escogido edicion de viajes");
-//                                    peticion.pedir(opcMenu, opcSubmenu, new JSONObject().put("message", "hola servidor"));
-//                                break;
+                                case 2: System.out.println("Haz escogido consulta de viajes");
+                                    viajeController.consulta(opcMenu, opcSubmenu);
+                                break;
+                                case 3: System.out.println("Haz escogido edicion de viajes");
+                                    viajeController.entregar(opcMenu, opcSubmenu, USUARIO);
+                                break;
                                 case 4:
                                     System.out.println("...");
                                     break;
