@@ -34,6 +34,7 @@ public class Cliente {
             do {
                 imprimirMenu();
                 opcMenu = input.nextInt();
+                
                 switch(opcMenu){
 
                     case 1:
@@ -144,9 +145,11 @@ public class Cliente {
                         break;
                     case 5:
                         ReportesController reporteController = new ReportesController();
+                       
                         do{
                             imprimirMenuReportes();
                             opcSubmenu = input.nextInt();
+                            long startTime = System.currentTimeMillis();
                             switch(opcSubmenu){
                                 case 1:
                                     System.out.println("\t\tHaz escogido el reporte 1");
@@ -189,6 +192,8 @@ public class Cliente {
                                     reporteController.r10_viajesCamionPorFecha(opcMenu, opcSubmenu);
                                     break;
                             }
+                            long endTime = System.currentTimeMillis() - startTime;
+                            System.out.println("\tTiempo de ejecucion:"+endTime+" milisegundos");
                         }while(opcSubmenu != 11);
                         break;
                     case 6:
@@ -241,16 +246,16 @@ public class Cliente {
 		void imprimirMenuReportes() {
 
         System.out.println("\t=========== Reportes ===========");
-						System.out.println("\t[1]. REPORTE 1");
-						System.out.println("\t[2]. REPORTE 2");
-						System.out.println("\t[3]. REPORTE 3");
-						System.out.println("\t[4]. REPORTE 4");
-						System.out.println("\t[5]. REPORTE 5");
-						System.out.println("\t[6]. REPORTE 6");
-						System.out.println("\t[7]. REPORTE 7");
-						System.out.println("\t[8]. REPORTE 8");
-						System.out.println("\t[9]. REPORTE 9");
-						System.out.println("\t[10]. REPORTE 10");
+						System.out.println("\t[1]. Tiendas por camion");
+						System.out.println("\t[2]. Envios por camion");
+						System.out.println("\t[3]. Tiendas con envios con cierta capacidad");
+						System.out.println("\t[4]. Viajes por tienda");
+						System.out.println("\t[5]. Camio con mas viajes a tienda");
+						System.out.println("\t[6]. Tiendas con mas envios con cierto volumen");
+						System.out.println("\t[7]. Camiones con peso superado");
+						System.out.println("\t[8]. Mes con menos viajes");
+						System.out.println("\t[9]. Mes con mas viajes");
+						System.out.println("\t[10].Reporte general");
 						System.out.println("\t[11]. VOLVER");
 						System.out.print("\tElige una opción: ");
 				}
