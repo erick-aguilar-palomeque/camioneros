@@ -260,7 +260,7 @@ public class Cliente {
         System.out.println("\t[2]. Envios por camion");
         System.out.println("\t[3]. Tiendas con envios con cierta capacidad");
         System.out.println("\t[4]. Viajes por tienda");
-        System.out.println("\t[5]. Camio con mas viajes a tienda");
+        System.out.println("\t[5]. Camión con mas viajes a tienda");
         System.out.println("\t[6]. Tiendas con mas envios con cierto volumen");
         System.out.println("\t[7]. Camiones con peso superado");
         System.out.println("\t[8]. Mes con menos viajes");

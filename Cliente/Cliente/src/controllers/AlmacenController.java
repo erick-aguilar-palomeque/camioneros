@@ -126,7 +126,7 @@ public class AlmacenController {
                 System.out.println("NO SE HA ENCONTRADO EL ALMACEN");
             }
             else{
-                System.out.println("\tCAMION ENCONTRADO");
+                System.out.println("\tALMACÉN ENCONTRADO");
                 System.out.println("\t-----------------------------------");
                 System.out.println("\tID: " + almacenAModificar.getIdAlmacen());
                 System.out.println("\tNOMBRE: " + almacenAModificar.getNombre());
